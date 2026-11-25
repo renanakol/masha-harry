@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "KtavYad";
+  src: url("/fonts/OhShirChanaGorgi-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Brand palette — original site: #FCE6DA #F69285 #F8A9A2 #D6A99D #A5B899 #677261 #D9C2B0 */
+    --peach: 21 85% 92%;
+    --coral: 7 88% 74%;
+    --blush: 5 87% 80%;
+    --rose: 12 44% 73%;
+    --sage: 97 18% 66%;
+    --sage-deep: 98 8% 41%;
+    --sand: 26 37% 77%;
+
+    --background: 30 60% 98%;
+    --foreground: 20 12% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 12% 18%;
+    --primary: 7 70% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 21 85% 92%;
+    --secondary-foreground: 20 12% 18%;
+    --muted: 25 40% 95%;
+    --muted-foreground: 20 8% 40%;
+    --accent: 97 18% 66%;
+    --accent-foreground: 98 15% 18%;
+    --border: 22 35% 86%;
+    --input: 22 35% 82%;
+    --ring: 7 70% 62%;
+    --radius: 1rem;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  ::selection { background: hsl(var(--blush) / 0.5); }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+}
