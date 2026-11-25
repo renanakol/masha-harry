@@ -1,3 +1,4 @@
+import { noOrphan } from "@/lib/typography";
 import { cn } from "@/lib/utils";
 
 export function SectionTitle({ children, className, id }: { children: React.ReactNode; className?: string; id?: string }) {
@@ -12,9 +13,8 @@ export function Lines({ lines, className }: { lines: string[]; className?: strin
   return (
     <p className={className}>
       {lines.map((l, i) => (
-        <span key={i}>
-          {l}
-          {i < lines.length - 1 && <br />}
+        <span key={i} className="block text-pretty">
+          {noOrphan(l)}
         </span>
       ))}
     </p>

@@ -1,3 +1,4 @@
+import { noOrphan } from "@/lib/typography";
 import { useEffect } from "react";
 import { legal } from "@/content/legal";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -22,11 +23,11 @@ export default function LegalPage({ doc }: { doc: keyof typeof legal }) {
               ) : b.type === "ul" ? (
                 <ul key={i} className="list-disc space-y-1 pr-6">
                   {b.items.map((it, j) => (
-                    <li key={j}>{it}</li>
+                    <li key={j}>{noOrphan(it)}</li>
                   ))}
                 </ul>
               ) : (
-                <p key={i}>{b.text}</p>
+                <p key={i}>{noOrphan(b.text)}</p>
               )
             )}
           </div>

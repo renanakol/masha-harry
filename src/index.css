@@ -53,3 +53,9 @@
     html { scroll-behavior: auto; }
   }
 }
+
+/* Typography: balanced headings, no orphan words in running text */
+@layer base {
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, blockquote, figcaption, label { text-wrap: pretty; }
+}

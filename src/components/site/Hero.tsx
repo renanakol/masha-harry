@@ -1,3 +1,4 @@
+import { noOrphan } from "@/lib/typography";
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials } from "@/content/site";
@@ -72,7 +73,7 @@ export function Hero() {
                 )}
               >
                 <blockquote className="rounded-sm bg-background/90 px-6 py-6 text-center text-[clamp(1.25rem,2.1vw,1.875rem)] italic leading-[1.5] text-foreground shadow-sm backdrop-blur-sm md:px-8">
-                  "{t.quote}"
+                  "{noOrphan(t.quote)}"
                 </blockquote>
                 <figcaption className="mt-6 text-center text-lg font-semibold text-foreground">{t.name}</figcaption>
               </figure>

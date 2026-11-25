@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle2, Globe, Loader2, Mail, MapPin, Phone } from "lucide-react";
-import { FacebookIcon, InstagramIcon, WhatsappIcon } from "./BrandIcons";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { EnvelopeIcon, FacebookIcon, GlobeIcon, InstagramIcon, MapMarkerAltIcon, PhoneAltIcon, WhatsappIcon } from "./SiteIcons";
 import { contact, contactSection as c, legalRoutes } from "@/content/site";
 import { submitContact } from "@/lib/contact";
 import { Button } from "@/components/ui/button";
@@ -34,10 +34,10 @@ export function ContactSection() {
   }
 
   const details = [
-    { icon: Globe, label: contact.site, href: "/" },
-    { icon: Phone, label: contact.phone, href: contact.phoneHref, ltr: true },
-    { icon: Mail, label: contact.email, href: `mailto:${contact.email}`, ltr: true },
-    { icon: MapPin, label: contact.location },
+    { icon: GlobeIcon, label: contact.site, href: "/" },
+    { icon: PhoneAltIcon, label: contact.phone, href: contact.phoneHref, ltr: true },
+    { icon: EnvelopeIcon, label: contact.email, href: `mailto:${contact.email}`, ltr: true },
+    { icon: MapMarkerAltIcon, label: contact.location },
   ];
   const socials = [
     { icon: FacebookIcon, label: "Facebook", href: contact.facebook },
@@ -97,7 +97,7 @@ export function ContactSection() {
             <ul className="space-y-3 text-[16px]">
               {details.map(({ icon: Icon, label, href, ltr }) => (
                 <li key={label} className="flex items-center gap-3">
-                  <Icon className="h-5 w-5 text-primary" aria-hidden />
+                  <Icon className="h-4 w-4 shrink-0 text-primary" />
                   {href ? (
                     <a href={href} dir={ltr ? "ltr" : undefined} className="hover:text-primary">
                       {label}
@@ -109,7 +109,7 @@ export function ContactSection() {
               ))}
             </ul>
             <div>
-              <p className="font-hand text-3xl" dir="ltr">{c.social}</p>
+              <p className="whitespace-nowrap font-hand text-3xl" dir="ltr">{c.social}</p>
               <ul className="mt-3 flex gap-3">
                 {socials.map(({ icon: Icon, label, href }) => (
                   <li key={label}>
@@ -120,7 +120,7 @@ export function ContactSection() {
                       aria-label={label}
                       className="flex h-11 w-11 items-center justify-center rounded-full bg-background text-foreground shadow-sm transition-colors hover:bg-primary hover:text-primary-foreground"
                     >
-                      <Icon className="h-5 w-5" aria-hidden />
+                      <Icon className="h-5 w-5" />
                     </a>
                   </li>
                 ))}

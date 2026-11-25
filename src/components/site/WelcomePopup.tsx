@@ -1,7 +1,8 @@
+import { noOrphan } from "@/lib/typography";
 import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { contact, popup } from "@/content/site";
-import { WhatsappIcon } from "./BrandIcons";
+import { WhatsappIcon } from "./SiteIcons";
 
 const KEY = "welcome-popup-seen";
 
@@ -60,7 +61,7 @@ export function WelcomePopup() {
         <h2 id="popup-title" className="mt-4 font-hand text-4xl leading-tight">
           {popup.title}
         </h2>
-        <p className="mt-3 text-lg text-foreground/80">{popup.text}</p>
+        <p className="mt-3 text-lg text-foreground/80">{noOrphan(popup.text)}</p>
         <a
           href={contact.whatsapp}
           target="_blank"
