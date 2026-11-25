@@ -29,7 +29,7 @@ export function SiteHeader({ home = true }: { home?: boolean }) {
     >
       <div className="container flex h-16 items-center justify-between gap-6 md:h-20">
         <Link to="/" aria-label="Masha Harry – דף הבית" className="shrink-0">
-          <img src="/img/logo.png" alt="Masha Harry Coaching | From Passion to Action" className="h-10 w-auto md:h-12" width={700} height={375} />
+          <img src="/img/logo.png" alt="Masha Harry Coaching | From Passion to Action" className="h-12 w-auto md:h-16" width={700} height={375} />
         </Link>
 
         <nav aria-label="ניווט ראשי" className="hidden lg:block">

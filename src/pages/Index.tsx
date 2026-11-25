@@ -4,6 +4,7 @@ import { AboutSection, IncludesSection, ProcessSection, TopicsSection } from "@/
 import { ContactSection } from "@/components/site/ContactSection";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CookieBanner } from "@/components/site/CookieBanner";
+import { WelcomePopup } from "@/components/site/WelcomePopup";
 import { useReveal } from "@/hooks/use-reveal";
 
 export default function Index() {
@@ -24,6 +25,7 @@ export default function Index() {
       </main>
       <SiteFooter />
       <CookieBanner />
+      <WelcomePopup />
     </div>
   );
 }

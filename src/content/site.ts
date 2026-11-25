@@ -197,3 +197,10 @@ export const footer = {
     { href: legalRoutes.terms, label: "תנאי שימוש" },
   ],
 };
+
+// Popup shown 5s after page load on the original site (Elementor popup).
+export const popup = {
+  title: "כל שינוי מתחיל מניצוץ קטן",
+  text: "כתבו לי ונגלה יחד לאן הוא יכול לקחת אתכם...",
+  cta: "בואו נתחיל",
+};

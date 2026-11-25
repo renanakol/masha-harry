@@ -11,19 +11,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SectionTitle } from "./SectionTitle";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent";
 
 export function ContactSection() {
   const [status, setStatus] = useState<Status>("idle");
-  const [consent, setConsent] = useState(false);
-  const [consentError, setConsentError] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!consent) {
-      setConsentError(true);
-      return;
-    }
     const fd = new FormData(e.currentTarget);
     setStatus("sending");
     try {
@@ -35,7 +29,7 @@ export function ContactSection() {
       });
       setStatus("sent");
     } catch {
-      setStatus("error");
+      setStatus("idle");
     }
   }
 
@@ -59,13 +53,11 @@ export function ContactSection() {
 
           <div className="reveal mt-8 rounded-[2rem] bg-background p-6 shadow-xl md:p-8">
             {status === "sent" ? (
-              <div role="status" className="flex flex-col items-center gap-3 py-10 text-center">
-                <CheckCircle2 className="h-12 w-12 text-sage-deep" aria-hidden />
-                <p className="text-xl font-semibold">תודה! ההודעה נשלחה</p>
-                <p className="text-muted-foreground">אחזור אליך בהקדם.</p>
+              <div role="status" aria-label={c.submit} className="flex items-center justify-center py-16">
+                <CheckCircle2 className="h-14 w-14 text-sage-deep" aria-hidden />
               </div>
             ) : (
-              <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-3" noValidate={false}>
+              <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-3">
                 <div className="space-y-1.5">
                   <Label htmlFor="cf-name">{c.fields.name}</Label>
                   <Input id="cf-name" name="name" required autoComplete="name" />
@@ -84,16 +76,7 @@ export function ContactSection() {
                 </div>
                 <div className="sm:col-span-3">
                   <div className="flex items-center gap-2">
-                    <Checkbox
-                      id="cf-consent"
-                      checked={consent}
-                      onCheckedChange={(v) => {
-                        setConsent(v === true);
-                        setConsentError(false);
-                      }}
-                      aria-invalid={consentError}
-                      aria-describedby={consentError ? "cf-consent-err" : undefined}
-                    />
+                    <Checkbox id="cf-consent" name="consent" required />
                     <Label htmlFor="cf-consent" className="font-normal">
                       {c.consent}{" "}
                       <Link to={legalRoutes.privacy} className="underline underline-offset-2 hover:text-primary">
@@ -101,21 +84,11 @@ export function ContactSection() {
                       </Link>
                     </Label>
                   </div>
-                  {consentError && (
-                    <p id="cf-consent-err" className="mt-2 text-sm text-red-700">
-                      יש לאשר את מדיניות הפרטיות לפני השליחה
-                    </p>
-                  )}
                 </div>
                 <Button type="submit" size="lg" className="sm:col-span-3" disabled={status === "sending"}>
                   {status === "sending" && <Loader2 className="animate-spin" />}
                   {c.submit}
                 </Button>
-                {status === "error" && (
-                  <p role="alert" className="text-sm text-red-700 sm:col-span-3">
-                    משהו השתבש. אפשר לנסות שוב או לכתוב לי בוואטסאפ.
-                  </p>
-                )}
               </form>
             )}
           </div>

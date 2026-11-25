@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 export default function LegalPage({ doc }: { doc: keyof typeof legal }) {
   const page = legal[doc];
   useEffect(() => {
-    document.title = `${page.title} – Masha Harry`;
+    document.title = `${page.title} - Masha Harry`;
   }, [page.title]);
 
   return (
