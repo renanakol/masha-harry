@@ -5,10 +5,12 @@ import { MemoryRouter } from "react-router-dom";
 import { AppRoutes } from "@/App";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
 import "@/index.css";
+import { MotionSwitcher } from "./MotionSwitcher";
 
 createRoot(document.getElementById("root")!).render(
   <MemoryRouter>
     <ScrollToTop />
     <AppRoutes />
+    <MotionSwitcher />
   </MemoryRouter>
 );

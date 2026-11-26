@@ -43,7 +43,7 @@ export function IncludesSection() {
     <section id="includes" aria-labelledby="includes-title" className="bg-rose/80 py-20 md:py-28">
       <div className="container grid items-center gap-12 md:grid-cols-[1.2fr_0.8fr] md:gap-16">
         <div className="reveal rounded-[2rem] bg-background p-6 shadow-xl md:p-10">
-          <h2 id="includes-title" className="font-hand text-[clamp(2.25rem,4.5vw,3.5rem)] leading-tight text-primary">
+          <h2 id="includes-title" className="reveal reveal-title font-hand text-[clamp(2.25rem,4.5vw,3.5rem)] leading-tight text-primary">
             {includes.title}
           </h2>
           <ul className="mt-6 space-y-4 text-[17px] leading-relaxed">

@@ -33,6 +33,7 @@ export function Hero() {
         width={964}
         height={768}
         fetchPriority="high"
+        data-parallax
         className="absolute inset-0 -z-10 h-full w-full object-cover object-[30%_center] md:object-center"
       />
       {/* light veil so the quote stays readable on small screens */}

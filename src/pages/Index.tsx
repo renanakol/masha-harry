@@ -5,10 +5,10 @@ import { ContactSection } from "@/components/site/ContactSection";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CookieBanner } from "@/components/site/CookieBanner";
 import { WelcomePopup } from "@/components/site/WelcomePopup";
-import { useReveal } from "@/hooks/use-reveal";
+import { useMotion } from "@/hooks/use-motion";
 
 export default function Index() {
-  useReveal();
+  useMotion();
   return (
     <div className="min-h-[100dvh] overflow-x-clip">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:right-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:shadow">

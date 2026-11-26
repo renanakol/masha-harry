@@ -129,9 +129,11 @@ export function ContactSection() {
           </div>
         </div>
 
-        <div className="reveal relative mx-auto w-full max-w-sm">
+        <div className="reveal reveal-img relative mx-auto w-full max-w-sm">
           <div aria-hidden className="absolute -inset-3 -z-0 -rotate-3 rounded-[2.5rem] bg-blush/50" />
-          <img src="/img/contact.webp" alt="מאשה מחייכת" width={768} height={1152} loading="lazy" className="relative aspect-[3/4] w-full rounded-[2rem] object-cover shadow-xl" />
+          <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
+            <img src="/img/contact.webp" alt="מאשה מחייכת" width={768} height={1152} loading="lazy" className="aspect-[3/4] w-full object-cover" />
+          </div>
         </div>
       </div>
     </section>
