@@ -94,7 +94,7 @@ export function AboutSection() {
   return (
     <section id="about" aria-labelledby="about-title" className="bg-sage/80 py-20 md:py-28">
       <div className="container grid items-start gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-        <Photo src="/img/about.webp" alt="מאשה בז'קט ירוק" w={768} h={1152} className="mx-auto w-full max-w-sm text-background md:sticky md:top-28" />
+        <Photo src="/img/about.webp" alt="מאשה בז'קט ירוק" w={768} h={1152} className="order-last mx-auto w-full max-w-sm text-background md:order-none md:sticky md:top-28" />
         <div className="max-w-[60ch] space-y-5 text-[17px] leading-relaxed text-accent-foreground md:text-lg">
           <SectionTitle id="about-title">{about.title}</SectionTitle>
           <p className="reveal text-2xl font-semibold">{about.hello}</p>
